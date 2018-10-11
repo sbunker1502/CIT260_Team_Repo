@@ -5,7 +5,7 @@
  * Team members: Shawn Curtis, Tyler Watson, Sean Bunker
  */
 package cityofaaron;
-
+import model.*;
 /**
  *
  * @author seanbunker
