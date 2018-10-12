@@ -11,42 +11,25 @@ package model;
  *
  * @author seanbunker
  */
-public enum TeamMember {
+public enum TeamMembers {
 
-    // enum attributes
-    private String name;
-    private String title;
-    
-    // constructor 1: 2 arguements
-    TeamMember(String name, String title) {
-        this.name = name;
-        this.title = title;
-    }
-    
-  
-    // getter: name
-    public String getName() {
-        return name;
-    }
-    
-    // setter: name
-    public void setName(String name) {
-        this.name = name;
-    }
-    
-    // getter: title
-    public String getTitle() {
-        return title;
-    }
-    
-    // setter: title
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    @Override
-    public String toString() {
-        return "TeamMember{" + "name=" + name + ", title=" + title + '}';
-    }
-    
+   withAnH("Curtis", "Mister"),
+   withAnE("Bunker", "Mister"),
+   withAT("Watson", "Mister");
+   
+   private String memberName;
+   private String memberTitle;
+   
+   TeamMembers(String name, String title){
+      memberName = name;
+      memberTitle = title;
+   }
+   
+   public String getName(){
+      return memberName;
+   }
+   
+   public String getTitle(){
+      return memberTitle;
+   }
 }
