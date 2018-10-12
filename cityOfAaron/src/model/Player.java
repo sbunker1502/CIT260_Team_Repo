@@ -26,12 +26,12 @@ public class Player implements Serializable{
     // Default Constructor
     public Player() {
     }
-
+ 
     // name getter
     public String getName() {
         return name;
     }
-    
+     
     // name setter
     public void setName(String playerName) {
         name = playerName;

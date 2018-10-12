@@ -4,7 +4,7 @@
  * Fall 2018
  * Team members: Shawn Curtis, Tyler Watson, Sean Bunker
  */
-package cityOfAaron;
+package cityofaaron;
 import model.*;
 /**
  *
@@ -15,7 +15,7 @@ public class CityOfAaron {
    public static void main(String[] args) {
       Player player1 = new Player();
       player1.setName("Shawn");
-      
+       
       Game game1 = new Game();
       game1.setPlayer(player1);
       System.out.println(game1.getPlayer().getName() + "\n");

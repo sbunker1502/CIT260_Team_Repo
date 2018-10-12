@@ -18,7 +18,7 @@ public class Game implements Serializable{
     public Game() 
     {
     }
-
+  
     public Player getPlayer() {
         return thePlayer;
     }
