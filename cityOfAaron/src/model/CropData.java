@@ -7,7 +7,7 @@ package model;
 
 /**
  *
- * @author Shawn
+ * @author Shawn Curtis
  */
 public class CropData {
    private int year;
