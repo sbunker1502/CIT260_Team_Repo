@@ -14,30 +14,30 @@ package model;
 public class Location {
    
    private String description;
-private String symbol;
+   private String symbol;
 
-public Location() {
-}
+   public Location() {
+   }
 
-public Location(String description, String symbol) {
-setDescription(description);
-setSymbol(symbol);
-}
+   public Location(String description, String symbol) {
+      setDescription(description);
+      setSymbol(symbol);
+   }
 
-public String getDescription() {
-return description;
-}
+   public String getDescription() {
+      return description;
+   }
 
-public void setDescription(String description) {
-this.description = description;
-}
+   public void setDescription(String description) {
+      this.description = description;
+   }
 
-public String getSymbol() {
-return symbol;
-}
+   public String getSymbol() {
+      return symbol;
+   }
 
-public void setSymbol(String symbol) {
-this.symbol = symbol;
-}
+   public void setSymbol(String symbol) {
+      this.symbol = symbol;
+   }
    
 }
