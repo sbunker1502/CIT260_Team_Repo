@@ -5,7 +5,7 @@ import java.util.Random;
 import model.*;
 
 public class CropControl {
-
+   private int landPrice;
    //constants
    private static final int LAND_BASE = 17;
    private static final int LAND_RANGE = 10;
@@ -53,6 +53,59 @@ public class CropControl {
       //return acresOwned
       return owned ;
    }
+   
+   
+   
+   // The buyLand method
+   // Purpose: To buy land
+   // Parameters: the price of land, the number of acres to buy, a
+   // a reference to a CropData object, and the number of wheat bushels in store. 
+   // Returns: the acres owned after the purchase
+   // Pre-conditions: acres to buy must be >= 0,
+   // and landPrice * acresToBuy must be <= wheatInStore
+   public static int buyLand(int landPrice, int acresToBuy, int wheatInStore, CropData cropData) {
+      
+      //if acresToBuy < 0, return -1
+      if(acresToBuy < 0){
+         return -1;
+      }
+      
+      //set totalPrice to landPrice*acresToBuy
+      int totalPrice = landPrice * acresToBuy;
+      
+      //if totalPrice > wheatInStore, return -2
+      if(totalPrice > wheatInStore){
+         return -2;
+      }
+      
+      //set owned to cropData.getAcresOwned()
+      int owned = cropData.getAcresOwned();
+      
+      //add acresToBuy to owned
+      owned += acresToBuy;
+      //add totalPrice to wheatInStore
+      wheatInStore -= totalPrice;
+      
+      //set this.acresOwned to owned
+      cropData.setAcresOwned(owned);
+      //set this.wheatInStore to wheatInStore
+      cropData.setWheatInStore(wheatInStore);
+      
+      
+      //return owned
+      return owned;
+   }
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
 }
 
 
