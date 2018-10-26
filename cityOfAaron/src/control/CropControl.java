@@ -79,33 +79,22 @@ public class CropControl {
       }
       
       //set owned to cropData.getAcresOwned()
-      int owned = cropData.getAcresOwned();
+      int acresOwned = cropData.getAcresOwned();
       
       //add acresToBuy to owned
-      owned += acresToBuy;
+      acresOwned += acresToBuy;
       //add totalPrice to wheatInStore
       wheatInStore -= totalPrice;
       
       //set this.acresOwned to owned
-      cropData.setAcresOwned(owned);
+      cropData.setAcresOwned(acresOwned);
       //set this.wheatInStore to wheatInStore
       cropData.setWheatInStore(wheatInStore);
       
       
       //return owned
-      return owned;
-   }
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
+      return acresOwned;
+   }   
 }
 
 
