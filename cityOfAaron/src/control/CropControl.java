@@ -94,5 +94,42 @@ public class CropControl {
       
       //return owned
       return acresOwned;
-   }   
-}
+   }     
+
+   // feed people by tyler
+   
+   //Pseudo-code for public int feedPeople(wheatInStore, wheatForPeople, poplation) 
+    public static int feedPeople(int wheatForPeople, CropData cropData){
+        try {
+        int wheatInStore = cropData.getWheatInStore(); 
+   //if wheatForPeople < 0, return -1     
+        if (wheatForPeople < 0) {
+            throw new CropException("Negative Output.");
+        }
+        
+   //if wheatInStore < wheatForPeople return -1     
+        if (wheatInStore < wheatForPeople) {
+        }
+   //wheatInStore = wheatInStore - wheatForPeople     
+         if (wheatForPeople < wheatInStore) {
+            wheatInStore -= wheatForPeople; 
+            cropData.setWheatInStore(wheatInStore);
+   // wheat for people
+            cropData.setWheatForPeople(wheatForPeople);
+            return cropData.getWheatInStore();
+        }
+        
+        }
+   //return wheatInStore
+        catch (CropException  e) {
+        
+        }
+        return 0;
+    }
+
+    private static class CropException extends Exception {
+
+        public CropException(String a_negative_value_was_input) {
+        }
+    }
+    }
