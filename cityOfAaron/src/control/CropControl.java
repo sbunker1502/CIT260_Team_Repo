@@ -95,4 +95,35 @@ public class CropControl {
       //return owned
       return acresOwned;
    }
+
+    
+    
+    public static int acresPlanted(int population, int wheatInStore, int acresOwned) 
+    {       
+                
+                
+        /* Purpose : Planting Acres
+        Method : plant crops
+        
+        */
+     
+        int acresByWheat = wheatInStore * 2;
+        int acresByPopulation = population * 10;
+        
+        if (acresByWheat > acresOwned && acresByPopulation > acresOwned)
+        { 
+            return acresOwned;
+        }
+        else if (acresByWheat < acresOwned && acresByWheat < acresByPopulation)
+        {
+            return acresByWheat;
+        }
+        else 
+        {
+            return acresByPopulation;
+        }
+    }     
+         
+        
+  
 }
