@@ -110,4 +110,64 @@ public class CropControlTest {
      int result = CropControl.buyLand(landPrice, acresToBuy, wheatInStore, cropData);
      assertEquals(expResult, result);
   }
+  
+  
+  /**
+     * Test of feedPeople method, of class CropControl.
+     */
+    
+   @Test
+    public void testFeedPeople1() {
+        System.out.println("feedPeople1");
+        CropData cropData = new CropData();
+        int wheatInStore = 3000;
+        int wheatForPeople = 10;
+        int expResult = 1;
+        int result = CropControl.feedPeople(wheatInStore, wheatForPeople, cropData);
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void testFeedPeople2() {
+        System.out.println("feedPeople2");
+        CropData cropData = new CropData();
+        int wheatInStore = 3000;
+        int wheatForPeople = -5;
+        int expResult = -1;
+        int result = CropControl.feedPeople(wheatInStore, wheatForPeople, cropData);
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void testFeedPeople3() {
+        System.out.println("feedPeople3");
+        CropData cropData = new CropData();
+        int wheatInStore = 3000;
+        int wheatForPeople = 3001;
+        int expResult = -2;
+        int result = CropControl.feedPeople(wheatInStore, wheatForPeople, cropData);
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void testFeedPeople4() {
+        System.out.println("feedPeople4");
+        CropData cropData = new CropData();
+        int wheatInStore = 3000;
+        int wheatForPeople = 3000;
+        int expResult = 1;
+        int result = CropControl.feedPeople(wheatInStore, wheatForPeople, cropData);
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void testFeedPeople5() {
+        System.out.println("feedPeople5");
+        CropData cropData = new CropData();
+        int wheatInStore = 3000;
+        int wheatForPeople = 0;
+        int expResult = 1;
+        int result = CropControl.feedPeople(wheatInStore, wheatForPeople, cropData);
+        assertEquals(expResult, result);
+    }
 }

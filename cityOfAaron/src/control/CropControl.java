@@ -113,5 +113,27 @@ public class CropControl {
       {
           return acresByPopulation;
       }
-   }     
+   }  
+
+public static int feedPeople(int wheatInStore, int wheatForPeople, CropData cropData) {
+        //if wheatForPeople < 0, return -1
+        if (wheatForPeople < 0){
+            return -1;
+        }
+        
+        //if wheatInStore < WheatForPeople return 
+        if(wheatForPeople > wheatInStore) {
+            return -2;
+        }
+        
+        //wheatInStore = wheatInStore - wheatForPeople
+        wheatInStore -= wheatForPeople;
+        cropData.setWheatInStore(wheatInStore);
+        
+        // wheat for people
+        cropData.setWheatForPeople(wheatForPeople);
+        
+        //return wheatInStore
+        return 1;
+        }
 }
