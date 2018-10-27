@@ -93,15 +93,52 @@ public class CropControl {
       //return owned
       return acresOwned;
    }
-    
-   public static int plantCrops(int population, int wheatInStore, int acresOwned){              
+   
+   
+   public static int plantCrops(int acresPlanted, int acresOwned, int population, int wheatInStore, CropData cropData){              
       /* Purpose : Planting Acres
       Method : plant crops
       */
-      int acresByWheat = wheatInStore * 2;
-      int acresByPopulation = population * 10;
-
-      if (acresByWheat > acresOwned && acresByPopulation > acresOwned)
+      if(acresPlanted < 0){
+         return -1;
+      }
+      if(acresPlanted > acresOwned){
+         return -2;
+      }
+      
+      int workCapacity = population * 10;
+      int workersNeeded = acresPlanted / 10;
+      if(workersNeeded > workCapacity){
+         return -3;
+      }
+      
+      int plantCapacity = wheatInStore * 2;
+      int bushelsNeeded = acresPlanted / 2;
+      if(bushelsNeeded > plantCapacity){
+         return -4;
+      }
+      
+      wheatInStore -= bushelsNeeded;
+      //set this.wheatInStore to wheatInStore
+      cropData.setWheatInStore(wheatInStore);
+      cropData.setAcresPlanted(acresPlanted);
+      
+      return 1;
+   }    
+   
+    /*public static int plantCrops(int population, int wheatInStore, int acresOwned){          */    
+      /* Purpose : Planting Acres
+      Method : plant crops
+      */
+      
+    /*  Wheat in store is get from Crop data.
+   If wheat in store is less than zero then an exception is generated that  wheat in store cannot be negative
+   Then wheat in store is set to wheatInStore variable
+   Then wheat for people  is set to wheatForPeople  variable
+   Wheat in store is returned
+         */
+      
+      /*   if (acresByWheat > acresOwned && acresByPopulation > acresOwned)
       { 
           return acresOwned;
       }
@@ -113,5 +150,7 @@ public class CropControl {
       {
           return acresByPopulation;
       }
-   }     
+      int acresPlanted = wheatInStore * 2;
+      int acresByPopulation = population * 10;
+   }     */
 }
