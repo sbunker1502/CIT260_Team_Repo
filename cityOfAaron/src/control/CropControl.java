@@ -124,33 +124,26 @@ public class CropControl {
       cropData.setAcresPlanted(acresPlanted);
       
       return 1;
-   }    
-   
-    /*public static int plantCrops(int population, int wheatInStore, int acresOwned){          */    
-      /* Purpose : Planting Acres
-      Method : plant crops
-      */
-      
-    /*  Wheat in store is get from Crop data.
-   If wheat in store is less than zero then an exception is generated that  wheat in store cannot be negative
-   Then wheat in store is set to wheatInStore variable
-   Then wheat for people  is set to wheatForPeople  variable
-   Wheat in store is returned
-         */
-      
-      /*   if (acresByWheat > acresOwned && acresByPopulation > acresOwned)
-      { 
-          return acresOwned;
+   }       
+   public static int feedPeople(int wheatInStore, int wheatForPeople, CropData cropData) {
+      //if wheatForPeople < 0, return -1
+      if (wheatForPeople < 0){
+          return -1;
       }
-      else if (acresByWheat < acresOwned && acresByWheat < acresByPopulation)
-      {
-          return acresByWheat;
+
+      //if wheatInStore < WheatForPeople return 
+      if(wheatForPeople > wheatInStore) {
+          return -2;
       }
-      else 
-      {
-          return acresByPopulation;
-      }
-      int acresPlanted = wheatInStore * 2;
-      int acresByPopulation = population * 10;
-   }     */
+
+      //wheatInStore = wheatInStore - wheatForPeople
+      wheatInStore -= wheatForPeople;
+      cropData.setWheatInStore(wheatInStore);
+
+      // wheat for people
+      cropData.setWheatForPeople(wheatForPeople);
+
+      //return wheatInStore
+      return 1;
+   }
 }
