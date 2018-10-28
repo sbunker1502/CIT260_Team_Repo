@@ -275,7 +275,7 @@ public class CropControlTest {
    public void testSetOffering4() {
       System.out.println("setOffering4");
       CropData cropData = new CropData();
-      int precentageToOffer = 1000;
+      int precentageToOffer = 100;
       CropControl instance = new CropControl();
       int expResult = 1;
       int result = instance.setOffering(precentageToOffer, cropData);
