@@ -21,7 +21,7 @@ public class CropData {
    private int peopleFed;
    private int acresPlanted;
    private int wheatForPeople;
-   
+   private int offeringPercentage;
    
    public CropData() {
    
@@ -101,5 +101,12 @@ public class CropData {
    }
    public int getWheatForPeople(){
       return wheatForPeople;
+   }
+   
+   public void setOfferingPercentage(int percentageToOffer){
+      offeringPercentage = percentageToOffer;
+   }
+   public int getOfferingPercentage(){
+      return offeringPercentage;
    }
 }

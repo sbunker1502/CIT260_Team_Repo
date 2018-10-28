@@ -146,4 +146,23 @@ public class CropControl {
       //return wheatInStore
       return 1;
    }
+   
+   public int setOffering(int precentageToOffer, CropData cropData){
+      // setOffering function
+
+      // purpose: to set the percentage of bushels harvested to be offered.
+
+      // parameter: the number of bushels to be offered
+
+      // returns: 1 for success, -1 for error
+
+      // pre-conditions: the number passed in needs to be greater than or equal to 0, and can’t exceed 100
+      if (precentageToOffer < 0 || precentageToOffer > 100){
+          return -1;
+      }
+      
+      cropData.setOfferingPercentage(precentageToOffer);
+      return 1;
+      
+   }
 }

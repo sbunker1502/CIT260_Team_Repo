@@ -51,7 +51,7 @@ public class CropControlTest {
    * Test of buyLand method, of class CropControl.
    */
   @Test
-  public void testBuyLand1() {
+  public void testBuyLand() {
      System.out.println("buyLand - Test Case 1");
      CropData cropData = new CropData();
      cropData.setAcresOwned(2800);
@@ -117,7 +117,7 @@ public class CropControlTest {
      */
     
    @Test
-    public void testFeedPeople1() {
+    public void testFeedPeople() {
         System.out.println("feedPeople1");
         CropData cropData = new CropData();
         int wheatInStore = 3000;
@@ -177,7 +177,7 @@ public class CropControlTest {
     * Test of plantCrops method, of class CropControl.
     */
    @Test
-   public void testPlantCrops1() {
+   public void testPlantCrops() {
       System.out.println("plantCrops1");
       CropData cropData = new CropData();
       int acresPlanted = 0;
@@ -234,6 +234,61 @@ public class CropControlTest {
       int wheatInStore = 3000;
       int expResult = 1;
       int result = CropControl.plantCrops(acresPlanted, acresOwned, population, wheatInStore, cropData);
+      assertEquals(expResult, result);
+   }
+
+   
+   /**
+    * Test of setOffering method, of class CropControl.
+    */
+   @Test
+   public void testSetOffering() {
+      System.out.println("setOffering1");
+      CropData cropData = new CropData();
+      int precentageToOffer = 50;
+      CropControl instance = new CropControl();
+      int expResult = 1;
+      int result = instance.setOffering(precentageToOffer, cropData);
+      assertEquals(expResult, result);
+   }
+   @Test
+   public void testSetOffering2() {
+      System.out.println("setOffering2");
+      CropData cropData = new CropData();
+      int precentageToOffer = -50;
+      CropControl instance = new CropControl();
+      int expResult = -1;
+      int result = instance.setOffering(precentageToOffer, cropData);
+      assertEquals(expResult, result);
+   }
+   @Test
+   public void testSetOffering3() {
+      System.out.println("setOffering3");
+      CropData cropData = new CropData();
+      int precentageToOffer = 1000;
+      CropControl instance = new CropControl();
+      int expResult = -1;
+      int result = instance.setOffering(precentageToOffer, cropData);
+      assertEquals(expResult, result);
+   }
+   @Test
+   public void testSetOffering4() {
+      System.out.println("setOffering4");
+      CropData cropData = new CropData();
+      int precentageToOffer = 1000;
+      CropControl instance = new CropControl();
+      int expResult = 1;
+      int result = instance.setOffering(precentageToOffer, cropData);
+      assertEquals(expResult, result);
+   }
+   @Test
+   public void testSetOffering5() {
+      System.out.println("setOffering5");
+      CropData cropData = new CropData();
+      int precentageToOffer = 0;
+      CropControl instance = new CropControl();
+      int expResult = 1;
+      int result = instance.setOffering(precentageToOffer, cropData);
       assertEquals(expResult, result);
    }
 }
