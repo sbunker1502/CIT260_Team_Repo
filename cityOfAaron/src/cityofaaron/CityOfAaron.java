@@ -6,6 +6,8 @@
  */
 package cityofaaron;
 import model.*;
+import view.*;
+import java.util.Scanner;
 /**
  *
  * @author Shawn Curtis
@@ -13,7 +15,12 @@ import model.*;
 public class CityOfAaron {
 
    public static void main(String[] args) {
-      Player player1 = new Player();
+      MainMenuView mainMenuVariable = new MainMenuView();
+      mainMenuVariable.gameMenuView();
+      
+
+      
+ /*     Player player1 = new Player();
       Game game1 = new Game();
       Location location1 = new Location();
       Location location2 = new Location("test string 2", "peace 2");
@@ -55,6 +62,6 @@ public class CityOfAaron {
       System.out.println(cropDataTest.getAcresPlanted() + ", ");
       System.out.println(cropDataTest.getWheatForPeople());
       
-      
+      */
    }    
 }
