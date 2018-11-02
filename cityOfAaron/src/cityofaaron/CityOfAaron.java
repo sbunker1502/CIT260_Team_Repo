@@ -8,15 +8,23 @@ package cityofaaron;
 import model.*;
 import view.*;
 import java.util.Scanner;
-/**
- *
- * @author Shawn Curtis
- */
+
+
 public class CityOfAaron {
+   // variable for keeping a reference to the Game object
+   private static Game theGame = null;
+   public static Game getGame() {
+        return theGame;
+    }
+    public static void setGame(Game game1) {
+        theGame = game1;
+    }
+
 
    public static void main(String[] args) {
-      MainMenuView mainMenuVariable = new MainMenuView();
-      mainMenuVariable.gameMenuView();
+      MainMenuView mmv = new MainMenuView();
+      mmv.displayMenuView();
+
       
 
       

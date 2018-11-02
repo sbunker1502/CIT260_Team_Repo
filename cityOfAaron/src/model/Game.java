@@ -7,23 +7,55 @@
  */
 package model;
 import java.io.Serializable;
-/**
- *
- * @author seanbunker
- */
+
+
 public class Game implements Serializable{
+   /* 
+   private Map theMap;
+   */
     private Player thePlayer;
+    private CropData cropData;
+   /* 
+    private animals ArrayList<ListItem>;
+    private tools ArrayList<ListItem>;
+    private provisions ArrayList<ListItem>;
+    */
     
-    // inserted constructors
-    public Game() 
-    {
+   // inserted constructors
+   public Game() 
+   {
+   }
+  
+   public Player getPlayer() {
+       return thePlayer;
+   }
+   public void setPlayer(Player player) {
+       thePlayer = player;
+   }
+  
+   
+    public CropData getCropData() {
+       return cropData;
+    }
+    public void setCropData(CropData cropData1) {
+       cropData = cropData1;
+    }
+  /* 
+    public Animals getAnimals() {
+    }
+    public void setAnimals(void Animals) {
     }
   
-    public Player getPlayer() {
-        return thePlayer;
+    public Tools getTools() {
     }
-
-    public void setPlayer(Player player) {
-        thePlayer = player;
+    public void setTools(void Tools) {
     }
+  
+    public Provisions getProvisions() {
+    }
+    public void setProvisions(void Provisions) {
+    }
+    */
+    
 }
+// slide 60
