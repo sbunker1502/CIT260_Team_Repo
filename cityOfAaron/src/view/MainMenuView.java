@@ -72,18 +72,46 @@ public class MainMenuView {
    public void startNewGame()
    {
        System.out.println("\nStart new game option selected.");
+               
+        // Prompt for and get the user's name
+        String name;
+        System.out.println("Please type in your first name: ");
+        name = keyboard.next();
+        
+         // Display a welcome message
+        System.out.println("Welcome " + name + ". Have fun playing."); 
+        
+        //call the createNewGame() method. Pass the name as a parameter
+        GameControl.createNewGame(name); 
+        
+        //show the game menu
+        GameMenuView gmv = new GameMenuView();
+        gmv.displayHelpMenu(); 
    }
    
+    public void startSavedGame() {
+        System.out.println("Start Saved Game option Selected");
+        
+        Scanner input = new Scanner(System.in);    
+
+        // get rid of \n character left in the stream
+        input.nextLine();
+        // prompt user to get a file path
+        System.out.println("File path of the game wanted: ");
+        String fileName;
+        fileName = input.nextLine();
+        // call the getSavedGame() method in the GameControl class
+        GameControl gc = new GameControl();
+        gc.getSavedGame(fileName);
+
+        // display the game menu for the loaded game
+        GameMenuView gm = new GameMenuView();
+        gm.displayHelpMenu();
+        }
    
    
    
-   
-   
-   
-   
-   
-   
-   
+ 
 
    public void loadSavedGame(){
       
