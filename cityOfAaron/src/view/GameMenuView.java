@@ -75,17 +75,17 @@ public class GameMenuView {
   public void doAction(int option)
   {
      switch(option){
-        case 1: // create and start a new game
-           //startNewGame();
+        case 1:
+           viewMap();
            break;
-        case 2: // get and start a saved game
-         //  startSavedGame();
+        case 2:
+         viewList();
            break;
-        case 3: // get help menu
-         //  displayHelpMenuView();
+        case 3: 
+         moveToNewLocation();
            break;
-        case 4: // save game
-         //  displaySaveGameView();
+        case 4:
+         manageCrops();
            break;
         case 5:
            // return to main menu
@@ -100,7 +100,9 @@ public class GameMenuView {
    
            
    public void viewList(){
-       System.out.println("\n View List");
+      System.out.println("\n View List");
+      ListMenuView lmv = new ListMenuView();
+      lmv.displayMenuView();
    }
    
            
@@ -110,7 +112,8 @@ public class GameMenuView {
   
    
    public void manageCrops(){
-       System.out.println("\n Manage Crops.");
+      System.out.println("\n Manage Crops.");
+      CropView cv = new CropView();
    }
   
 }

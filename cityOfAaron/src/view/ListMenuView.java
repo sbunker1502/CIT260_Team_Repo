@@ -72,20 +72,19 @@ public class ListMenuView {
    public void doAction(int option)
    {
       switch(option){
-         case 1: // create and start a new game
-            //startNewGame();
+         case 1: 
+            listAnimals();
             break;
-         case 2: // get and start a saved game
-          //  startSavedGame();
+         case 2: 
+            listTools();
             break;
-         case 3: // get help menu
-          //  displayHelpMenuView();
+         case 3: 
+            listProvisions();
             break;
-         case 4: // save game
-          //  displaySaveGameView();
+         case 4: 
+            listTeam();
             break;
          case 5:
-            // return to main menu
             return;
       }
       return;
