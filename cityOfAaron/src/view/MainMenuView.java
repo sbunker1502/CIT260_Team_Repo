@@ -43,7 +43,7 @@ public class MainMenuView {
    // Parameters: none
    // Returns: none
    // =========================================================    
-   public void displayMenuView(){
+   /*public void displayMenuView(){
       int menuOption;
       do{
          // Display the menu
@@ -56,11 +56,24 @@ public class MainMenuView {
          doAction(menuOption);
 
       }while(menuOption != max);
-   }
+   }*/
 
+   public void displayMenuView(){
+     // execute this loop as long as the selected option is not 5
+     int menuOption;
+     do
+     {
+         // display the main menu
+         System.out.println(theMenu);
+        
+         // get the user's selection
+         menuOption = getMenuOption();
+        
+         // perform the selected action
+         doAction(menuOption);  
+     } while (menuOption != max);
+ }
 
-   
-   
    
    // The getMenuOption method
    // Purpose: gets the user's input
@@ -124,6 +137,10 @@ public class MainMenuView {
 
       // Display a welcome message
       System.out.println("Welcome " + name + " have fun!!!");
+
+      // Display the Game menu
+      GameMenuView gmv = new GameMenuView();
+      gmv.displayMenuView();
 
    }
 
