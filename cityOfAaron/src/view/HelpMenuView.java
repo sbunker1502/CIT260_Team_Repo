@@ -28,7 +28,7 @@ import cityofaaron.CityOfAaron;
      */
     public HelpMenuView() {
         
-        "\n" +  
+       helpMenu = "\n" +  
                 "*********************************\n" + 
                 "*   CITY OF AARON : HELP MENU   *\n" +
                 "*********************************\n" +
@@ -36,9 +36,50 @@ import cityofaaron.CityOfAaron;
                 " 2 - Map\n" +
                 " 3 - Movement\n" + 
                 " 4 - List\n" + 
-                " 5 - Quit\n",
-                5);
+                " 5 - Back to the Main Menu\n";
+        max = 5;
     }
+    
+    public void displayMenuView(){
+      int menuOption;
+      do{
+         // Display the menu
+         System.out.println(helpMenu);
+
+         // Prompt the user and get the user’s input
+         menuOption = getMenuOption();
+
+         // Perform the desired action
+         doAction(menuOption);
+
+      }while(menuOption != max);
+   }
+    
+    
+    
+    
+   // The getMenuOption method
+   // Purpose: gets the user's input
+   // Parameters: none
+   // Returns: integer - the option selected
+   // ===================================       
+   public int getMenuOption(){
+      int userInput = 0;
+      // begin loop
+      do{
+         // get user input from the keyboard
+         userInput = keyboard.nextInt();
+         // if it is not a valid value, output an error message
+         // loop back to the top of the loop if input was not valid
+         if(userInput < 1 || userInput > max){
+            System.out.println("Error: you must select 1, 2, 3, 4, or 5");
+         }
+         // end loop
+      } while (userInput < 1 || userInput > max);
+      return userInput;
+   }
+    
+    
     
     
       // The MainMenuView constructor
@@ -70,6 +111,10 @@ import cityofaaron.CityOfAaron;
                 System.out.println("Thanks for playing! Goodbye =D\n");
         }
     }
+        
+        
+        
+        
       // Method: viewGoals
       // Purpose: view the goals of the game
       // Parameters: none
