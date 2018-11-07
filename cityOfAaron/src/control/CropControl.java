@@ -63,7 +63,7 @@ public class CropControl {
    // Returns: the acres owned after the purchase
    // Pre-conditions: acres to buy must be >= 0,
    // and landPrice * acresToBuy must be <= wheatInStore
-   public static int buyLand(int landPrice, int acresToBuy, int wheatInStore, CropData cropData) {
+   public static int buyLand(int landPrice, int acresToBuy, CropData cropData) {
       
       //if acresToBuy < 0, return -1
       if(acresToBuy < 0){
@@ -74,9 +74,9 @@ public class CropControl {
       int totalPrice = landPrice * acresToBuy;
       
       //if totalPrice > wheatInStore, return -2
-      if(totalPrice > wheatInStore){
-         return -2;
-      }
+     // if(totalPrice > wheatInStore){
+       //  return -2;
+      //}
       
       //set owned to cropData.getAcresOwned()
       int acresOwned = cropData.getAcresOwned();
@@ -84,12 +84,12 @@ public class CropControl {
       //add acresToBuy to owned
       acresOwned += acresToBuy;
       //add totalPrice to wheatInStore
-      wheatInStore -= totalPrice;
+      //wheatInStore -= totalPrice;
       
       //set this.acresOwned to owned
       cropData.setAcresOwned(acresOwned);
       //set this.wheatInStore to wheatInStore
-      cropData.setWheatInStore(wheatInStore);
+      //cropData.setWheatInStore(wheatInStore);
       //return owned
       return acresOwned;
    }

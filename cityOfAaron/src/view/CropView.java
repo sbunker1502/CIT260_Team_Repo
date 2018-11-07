@@ -52,8 +52,7 @@ public class CropView {
 // Purpose: runs the methods to manage the crops game
 // Parameters: none
 // Returns: none
-public static void runCropView()
-{
+public static void runCropView(){
     // call the buyLandView( ) method
     buyLandView( );
 
@@ -61,5 +60,17 @@ public static void runCropView()
     // as they are written
 }
 
-    
+
+   public static void sellLandView(){
+      System.out.println("\n sellLandView");
+   }
+   public static void feedPeopleView(){
+      System.out.println("\n feedPeopleView");
+   }
+   public static void plantCropsView(){
+      System.out.println("\n plantCropsView");
+   }
+   public static void displayCropsReportView(){
+      System.out.println("\n displayCropsReportView");
+   }
 }
