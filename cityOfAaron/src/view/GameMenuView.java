@@ -26,12 +26,12 @@ public class GameMenuView {
 
      gameMenu =         "\n" +
                        "**********************************\n" +
-                       "* CITY OF AARON: MAIN GAME MENU  *\n" +
+                       "* CITY OF AARON: GAME MENU  *\n" +
                        "**********************************\n" +
-                       " 1 - Start new game\n" +
-                       " 2 - Get and start a saved game\n" +
-                       " 3 - Get help on playing the game\n" +
-                       " 4 - Save game\n" +
+                       " 1 - View Map\n" +
+                       " 2 - View List\n" +
+                       " 3 - Move To New Location\n" +
+                       " 4 - Manage Crops\n" +
                        " 5 - Back to the Main Menu\n";
      max = 5;
   }
