@@ -73,4 +73,43 @@ public static void runCropView(){
    public static void displayCropsReportView(){
       System.out.println("\n displayCropsReportView");
    }
+
+   
+   
+   /**
+ *
+ * @author tylerwatson
+ */
+   
+      public static void sellLandView() {
+        // get cost of land this round
+        int price = CropControl.calcLandPrice();
+        int toSell = 0;
+        // prompt user to enter number of of acres to buy
+        System.out.format("Land is selling for %d bushels per acre.%n", price);
+        
+        boolean ok = true;
+        do {
+            try {
+                System.out.print("How many acres of land do you wish to sell?");
+                toSell = keyboard.nextInt();
+                
+                if (toSell < 0) {
+                    throw new CropException("Cannot Sell Negative Amount of Land");
+                }                
+                // actually sell the land
+                CropControl.sellLand(price, toSell, cropData);
+                ok =  false;
+            }
+            catch (CropException e) {
+                System.out.println(e.getMessage());
+                ok = true;
+            }
+        } while (ok);      
+        
+        // actually sell the land 
+   
+      }
+   
+   
 }
