@@ -13,3 +13,4 @@ public interface ViewInterface{
     public int getMenuOption();
     public void doAction(int option);
 }
+

@@ -5,71 +5,38 @@
  */
 package view;
 import java.util.Scanner;
-/**
+public class ListMenuView extends MenuView{
+   /**
  *
- * @author Curtis
+ * @author Shawn Curtis
  */
-public class ListMenuView {
-   Scanner keyboard = new Scanner(System.in);
-   private String listMenu;
-   private int max;
-
-   public ListMenuView(){
-      // The GameMenuView constructor
-      // Purpose: Initialize the menu data
-      // Parameters: none
-      // Returns: none
-      // ===================================
-
-      listMenu =         "\n" +
-                        "**********************************\n" +
-                        "* CITY OF AARON: LIST MENU  *\n" +
-                        "**********************************\n" +
-                        " 1 - List Animals\n" +
-                        " 2 - List Tools\n" +
-                        " 3 - List Provisions\n" +
-                        " 4 - List Team\n" +
-                        " 5 - Back to the Main Menu\n";
-      max = 5;
-   }
-
-   public void displayMenuView(){
-      int menuOption;
-      do{
-         // Display the menu
-         System.out.println(listMenu);
-
-         // Prompt the user and get the user’s input
-         menuOption = getMenuOption();
-
-         // Perform the desired action
-         doAction(menuOption);
-
-      }while(menuOption != max);
-   }
-
-   // The getMenuOption method
-   // Purpose: gets the user's input
+   
+   // The ListMenuView constructor
+   // Purpose: Initialize the menu data
    // Parameters: none
-   // Returns: integer - the option selected
-   // ===================================       
-   public int getMenuOption(){
-      int userInput = 0;
-      // begin loop
-      do{
-         // get user input from the keyboard
-         userInput = keyboard.nextInt();
-         // if it is not a valid value, output an error message
-         // loop back to the top of the loop if input was not valid
-         if(userInput < 1 || userInput > max){
-            System.out.println("Error: you must select 1, 2, 3, 4, or 5");
-         }
-         // end loop
-      } while (userInput < 1 || userInput > max);
-      return userInput;
+   // Returns: none
+   // ===================================
+   public ListMenuView(){
+      super("\n" +
+               "**********************************\n" +
+               "* CITY OF AARON: LIST MENU  *\n" +
+               "**********************************\n" +
+               " 1 - List Animals\n" +
+               " 2 - List Tools\n" +
+               " 3 - List Provisions\n" +
+               " 4 - List Team\n" +
+               " 5 - Back to the Main Menu\n",
+            5);
    }
 
-   public void doAction(int option)
+   
+
+   // The doAction method
+   // Purpose: performs the selected action
+   // Parameters: none
+   // Returns: none
+   // ===================================       
+   @Override public void doAction(int option)
    {
       switch(option){
          case 1: 
