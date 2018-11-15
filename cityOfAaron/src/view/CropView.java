@@ -12,7 +12,7 @@ import cityofaaron.CityOfAaron;
 
 /**
  *
- * @author seanbunker
+ * @author Team Awesome
  */
 public class CropView {
     
@@ -76,10 +76,8 @@ public static void runCropView(){
 
    
    
-   /**
- *
- * @author tylerwatson
- */
+   /*
+
    
       public static void sellLandView() {
         // get cost of land this round
@@ -110,6 +108,6 @@ public static void runCropView(){
         // actually sell the land 
    
       }
-   
+    */
    
 }

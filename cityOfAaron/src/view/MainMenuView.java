@@ -9,99 +9,37 @@ import control.*;
 import cityofaaron.CityOfAaron;
 
 import java.util.Scanner;
+/**
+ *
+ * @author Team Awesome
+ */
 
-public class MainMenuView {
-   
-   Scanner keyboard = new Scanner(System.in);
-   private String theMenu;
-   private int max;
-
-   public MainMenuView(){
-      // The MainMenuView constructor
-      // Purpose: Initialize the menu data
-      // Parameters: none
-      // Returns: none
-      // ===================================
-
-      theMenu =         "\n" +
-                        "**********************************\n" +
-                        "* CITY OF AARON: MAIN GAME MENU  *\n" +
-                        "**********************************\n" +
-                        " 1 - Start new game\n" +
-                        " 2 - Get and start a saved game\n" +
-                        " 3 - Get help on playing the game\n" +
-                        " 4 - Save game\n" +
-                        " 5 - Quit\n";
-      max = 5;
-   }
-   
-   
-   
-   // The displayMenuView method
-   // Purpose: displays the menu, gets the user's input, and does the 
-   //               selected action
+public class MainMenuView extends MenuView{
+   // The MainMenuView constructor
+   // Purpose: Initialize the menu data
    // Parameters: none
    // Returns: none
-   // =========================================================    
-   /*public void displayMenuView(){
-      int menuOption;
-      do{
-         // Display the menu
-         System.out.println(theMenu);
-
-         // Prompt the user and get the user’s input
-         menuOption = getMenuOption();
-
-         // Perform the desired action
-         doAction(menuOption);
-
-      }while(menuOption != max);
-   }*/
-
-   public void displayMenuView(){
-     // execute this loop as long as the selected option is not 5
-     int menuOption;
-     do
-     {
-         // display the main menu
-         System.out.println(theMenu);
-        
-         // get the user's selection
-         menuOption = getMenuOption();
-        
-         // perform the selected action
-         doAction(menuOption);  
-     } while (menuOption != max);
- }
-
-   
-   // The getMenuOption method
-   // Purpose: gets the user's input
-   // Parameters: none
-   // Returns: integer - the option selected
-   // ===================================       
-   public int getMenuOption(){
-      int userInput = 0;
-      // begin loop
-      do{
-         // get user input from the keyboard
-         userInput = keyboard.nextInt();
-         // if it is not a valid value, output an error message
-         // loop back to the top of the loop if input was not valid
-         if(userInput < 1 || userInput > max){
-            System.out.println("Error: you must select 1, 2, 3, 4, or 5");
-         }
-         // end loop
-      } while (userInput < 1 || userInput > max);
-      return userInput;
+   // ===================================
+   public MainMenuView( ){
+      super("\n" +
+                 "**********************************\n" +
+                 "* CITY OF AARON: MAIN GAME MENU  *\n" +
+                 "**********************************\n" +
+                 " 1 - Start new game\n" +
+                 " 2 - Get and start a saved game\n" +
+                 " 3 - Get help on playing the game\n" +
+                 " 4 - Save game\n" +
+                 " 5 - Quit\n", 
+            5);
    }
+
 
    // The doAction method
    // Purpose: performs the selected action
    // Parameters: none
    // Returns: none
    // ===================================       
-   public void doAction(int option)
+   @Override public void doAction(int option)
    {
       switch(option){
          case 1: // create and start a new game
@@ -140,7 +78,7 @@ public class MainMenuView {
 
       // Display the Game menu
       GameMenuView gmv = new GameMenuView();
-      gmv.displayMenuView();
+      gmv.displayMenu();
 
    }
 
@@ -153,76 +91,11 @@ public class MainMenuView {
    public void displayHelpMenuView(){
       System.out.println("\n Display help menu selected.");
       HelpMenuView hmv = new HelpMenuView();
-      hmv.displayMenuView();
+      hmv.displayMenu();
    }
    
            
    public void displaySaveGameView(){
        System.out.println("\n Display save game selected.");
    }
-   
-
-   
-   
-   /*
-   
-   
-   public void gameMenuView(){
-      String theMenu =  "**********************************\n" +
-                        "* CITY OF AARON: MAIN GAME MENU  *\n" +
-                        "**********************************\n" +
-                        " 1 - Start new game\n" +
-                        " 2 - Get and start a saved game\n" +
-                        " 3 - Get help on playing the game\n" +
-                        " 4 - Save game\n" +
-                        " 5 - Quit\n";
-      System.out.println(theMenu);
-      // declare a variable to hold user’s input
-      int userInput = 0;
-      final int MAX = 5;
-      
-
-      // begin loop
-      do{
-         // get user input from the keyboard
-         userInput = keyboard.nextInt();
-         // if it is not a valid value, output an error message
-         // loop back to the top of the loop if input was not valid
-         if(userInput < 1 || userInput > MAX){
-            System.out.println("Error: you must select 1, 2, 3, 4, or 5");
-         }
-         // end loop
-      } while (userInput < 1 || userInput > MAX);
-
-      
-      switch(userInput){
-         case 1: // create and start a new game
-             startNewGame();
-             break;
-         case 2: // get and start a saved game
-             loadSavedGame();
-             break;
-         case 3: // get help menu
-             displayHelpMenu();
-             break;
-         case 4: // save game
-             saveGame();
-             break;
-         case 5:
-             System.out.println("Thanks for playing ... goodbye.");
-      }
-      return;
-   }
-   
-   public void loadSavedGame(){
-      
-   }
-   public void displayHelpMenu(){
-      
-   }
-   public void saveGame(){
-      
-   }
-   */
-   
 }
