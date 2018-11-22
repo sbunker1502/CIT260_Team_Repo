@@ -27,9 +27,11 @@ public class GameControl {
       game.setPlayer(player);
       // create and initialize a CropData object
       // save a reference to it in the Game object
-      // method prologue ….        
+      // method prologue ….  
+   
+        
       
-      CropData cropData = new CropData();
+      /*CropData cropData = new CropData(); 
 
       cropData.setYear(0);
       cropData.setPopulation(100);
@@ -47,9 +49,9 @@ public class GameControl {
       game.setCropData(cropData);
 
       // when all is done, save a reference to the Game object
-      CityOfAaron.setGame(game);
+      CityOfAaron.setGame(game);*/
+   
    }
-
         //create the Locations and the Map object 
         
         /**
