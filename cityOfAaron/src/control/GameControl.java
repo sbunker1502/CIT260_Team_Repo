@@ -10,6 +10,10 @@ import model.*;
 import cityofaaron.CityOfAaron;
 
 public class GameControl {
+    
+    // size of the Locations array
+   private static final int MAX_ROW = 5;
+    private static final int MAX_COL = 5;
 
    public static void createNewGame(String _name) {
       // create the game object
@@ -23,6 +27,8 @@ public class GameControl {
       game.setPlayer(player);
       // create and initialize a CropData object
       // save a reference to it in the Game object
+      // method prologue ….        
+      
       CropData cropData = new CropData();
 
       cropData.setYear(0);
@@ -30,10 +36,12 @@ public class GameControl {
       cropData.setNewPeople(5);
       cropData.setCropYield(3);
       cropData.setNumberWhoDied(0);
+      cropData.setOffering(10);
       cropData.setWheatInStore(2700);
       cropData.setAcresOwned(1000);
       cropData.setAcresPlanted(1000);
       cropData.setHarvest(3000);
+      cropData.setOfferingBushels(300);
       cropData.setAcresPlanted(1000);
 
       game.setCropData(cropData);

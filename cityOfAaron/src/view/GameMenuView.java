@@ -61,11 +61,17 @@ public class GameMenuView extends MenuView{
         System.out.println("\n View Map");
     }
 
-    public void viewList() {
-        System.out.println("\n View List");
+    // The viewList() method
+    // Purpose: Creates a ListMenuView object and calls its
+    //    displayMenu( ) method       
+    // Parameters: none
+    // Returns: none
+    public void viewList()
+    {
         ListMenuView lmv = new ListMenuView();
-        lmv.displayMenu();
-    }
+        mlv.displayMenu();
+    } 
+
 
     public void moveToNewLocation() {
         System.out.println("\n Move Player to New Location");
