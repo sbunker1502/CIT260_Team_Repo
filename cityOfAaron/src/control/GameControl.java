@@ -134,4 +134,26 @@ public class GameControl {
             // return 
             return theMap;
         }
+        
+        //create the tools list
+        public static void createlistTools() {
+            ArrayList<ListItem> tools = new ArrayList<>(); 
+            
+            tools.add(new ListItem("plow", 8));
+            tools.add(new ListItem("shovel", 46));
+            tools.add(new ListItem("hammer", 23));
+           
+            theGame.setTools(tools);
+           
+        }
+
+        // method to display tools list
+        public static void showlistTools() {
+            System.out.println("showlistTools Method Called");
+            ArrayList<ListItem> tools = Game.getTools();
+            for (ListItem item : tools) {
+                System.out.println(item.getName() + ": " + item.getNumber());
+            }
+        }
+        
 }

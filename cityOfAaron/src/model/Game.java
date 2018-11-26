@@ -40,15 +40,16 @@ public class Game implements Serializable{
     public void setCropData(CropData cropData1) {
        cropData = cropData1;
     }
+    
+    public Tools getTools() {
+    }
+    public void setTools(void Tools) {
+    }
+    
   /* 
     public Animals getAnimals() {
     }
     public void setAnimals(void Animals) {
-    }
-  
-    public Tools getTools() {
-    }
-    public void setTools(void Tools) {
     }
   
     public Provisions getProvisions() {
