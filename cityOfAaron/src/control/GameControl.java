@@ -179,4 +179,40 @@ public class GameControl {
       }
    }
         
+   
+      //create the list of animals
+   public static void createAnimalList() {
+       ArrayList<ListItem> animals = new ArrayList<>();
+
+       animals.add(new ListItem("cows", 12));
+       animals.add(new ListItem("horses", 3));
+       animals.add(new ListItem("pigs", 7));
+       animals.add(new ListItem("goats", 4)); 
+
+       //save the animals in the game
+       Game.setAnimals(animals);
+   }
+        
+   // method to display animals list
+   public static void showAnimalsList() {
+       System.out.println("showAnimalsList Method Called");
+       ArrayList<ListItem> animals = Game.getAnimals();
+
+       for (ListItem item : animals) {
+           System.out.println("Loop");
+           System.out.println(item.getName() + ": " + item.getNumber());
+       }
+   }
+   
+   public static void createProvisionsList(){
+      ArrayList<ListItem> provisions = new ArrayList<>();
+
+      provisions.add(new ListItem("meals", 21));
+      provisions.add(new ListItem("windex", 75));
+      provisions.add(new ListItem("paper towels", 61));
+      provisions.add(new ListItem("grocery bags", 123));
+
+      Game.setProvisions(provisions);
+   }
+
 }

@@ -8,16 +8,17 @@
 package model;
 import java.io.Serializable;
 
+import java.io.*; 
+import java.util.*; 
+
 
 public class Game implements Serializable{
    private Map theMap;
    private Player thePlayer;
    private CropData cropData;
-   /* 
-    private animals ArrayList<ListItem>;
-    private tools ArrayList<ListItem>;
-    private provisions ArrayList<ListItem>;
-    */
+    private ArrayList<ListItem> animals ;
+    private ArrayList<ListItem> tools ;
+    private ArrayList<ListItem> provisions ;
     
    // inserted constructors
    public Game() 
@@ -49,11 +50,13 @@ public class Game implements Serializable{
     }
     public void setAnimals(void Animals) {
     }
-  
-    public Provisions getProvisions() {
+   */
+    public ArrayList<ListItem> getProvisions() {
+       return provisions;
     }
-    public void setProvisions(void Provisions) {
+    public void setProvisions(provisions1) {
+       provisions = provisions1
     }
-    */
+   
     
 }
