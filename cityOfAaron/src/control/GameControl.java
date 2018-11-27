@@ -58,6 +58,38 @@ public class GameControl {
          * The createMap method
          **/
    
+
+           //create the list of animals
+        public static void createAnimalList() {
+            ArrayList<ListItem> animals = new ArrayList<>();
+            
+            animals.add(new ListItem("cows", 12));
+            animals.add(new ListItem("horses", 3));
+            animals.add(new ListItem("pigs", 7));
+            animals.add(new ListItem("goats", 4)); 
+            
+            //save the animals in the game
+            Game.setAnimals(animals);
+        }
+        
+        // method to display animals list
+        public static void showAnimalsList() {
+            System.out.println("showAnimalsList Method Called");
+            ArrayList<ListItem> animals = Game.getAnimals();
+            
+            for (ListItem item : animals) {
+                System.out.println("Loop");
+                System.out.println(item.getName() + ": " + item.getNumber());
+            }
+            
+            
+            
+            
+            
+            
+            
+            
+            
         public static Map createMap() {
             //create the Map object
             //refer to the Map constructor
