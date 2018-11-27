@@ -5,6 +5,9 @@
  */
 package view;
 import java.util.Scanner;
+import model.*;
+import control.*;
+
 public class ListMenuView extends MenuView{
    /**
  *
@@ -64,7 +67,7 @@ public class ListMenuView extends MenuView{
            
    public void listTools(){
        System.out.println("\n listTools");
-       GameControl.showlistTools();
+       GameControl.showListTools();
    }
    
            

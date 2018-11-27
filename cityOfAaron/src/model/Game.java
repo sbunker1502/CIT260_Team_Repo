@@ -10,11 +10,9 @@ import java.io.Serializable;
 
 
 public class Game implements Serializable{
-   /* 
    private Map theMap;
-   */
-    private Player thePlayer;
-    private CropData cropData;
+   private Player thePlayer;
+   private CropData cropData;
    /* 
     private animals ArrayList<ListItem>;
     private tools ArrayList<ListItem>;
@@ -40,13 +38,13 @@ public class Game implements Serializable{
     public void setCropData(CropData cropData1) {
        cropData = cropData1;
     }
-    
+   /* 
     public Tools getTools() {
     }
     public void setTools(void Tools) {
     }
     
-  /* 
+  
     public Animals getAnimals() {
     }
     public void setAnimals(void Animals) {
