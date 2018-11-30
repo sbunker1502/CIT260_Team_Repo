@@ -16,20 +16,22 @@ public class GameControl {
    // size of the Locations array
    private static final int MAX_ROW = 5;
    private static final int MAX_COL = 5;
-
+   // create the game object
+   private static Game theGame = new Game();
+   
    public static void createNewGame(String _name) {
       // create the game object
-      Game game = new Game();
+      //Game theGame = new Game();
 
       // create the player object and set the name
-      Player player = new Player();
-      player.setName(_name);
-
-      // save reference to the player object in the game
-      game.setPlayer(player);
+      Player thePlayer = new Player();
+      thePlayer.setName(_name);
+      theGame.setPlayer(thePlayer); 
+      
       // create and initialize a CropData object
       // save a reference to it in the Game object
       // method prologue ….  
+     
       createCropDataObject();
       createMap();
       
@@ -82,7 +84,7 @@ public class GameControl {
    public static void createMap() {
       //create the Map object
       //refer to the Map constructor
-      Map theMap = new Map(MAX_ROW, MAX_COL); 
+      Maps theMap = new Maps(MAX_ROW, MAX_COL); 
 
       //create a string that will go in the Location objects
       //that contain the river
@@ -166,17 +168,17 @@ public class GameControl {
       tools.add(new ListItem("shovel", 46));
       tools.add(new ListItem("hammer", 23));
 
-      theGame.setTools(tools);
+      //theGame.setTools(tools);
 
    }
 
    // method to display tools list
    public static void showListTools() {
-      System.out.println("showlistTools Method Called");
+   /*   System.out.println("showlistTools Method Called");
       ArrayList<ListItem> tools = Game.getTools();
       for (ListItem item : tools) {
           System.out.println(item.getName() + ": " + item.getNumber());
-      }
+      }*/
    }
         
    
@@ -190,18 +192,18 @@ public class GameControl {
        animals.add(new ListItem("goats", 4)); 
 
        //save the animals in the game
-       Game.setAnimals(animals);
+      // Game.setAnimals(animals);
    }
         
    // method to display animals list
    public static void showAnimalsList() {
        System.out.println("showAnimalsList Method Called");
-       ArrayList<ListItem> animals = Game.getAnimals();
+      /* ArrayList<ListItem> animals = Game.getAnimals();
 
        for (ListItem item : animals) {
            System.out.println("Loop");
            System.out.println(item.getName() + ": " + item.getNumber());
-       }
+       }*/
    }
    
    public static void createProvisionsList(){
@@ -212,7 +214,7 @@ public class GameControl {
       provisions.add(new ListItem("paper towels", 61));
       provisions.add(new ListItem("grocery bags", 123));
 
-      Game.setProvisions(provisions);
+      //Game.setProvisions(provisions);
    }
 
 }

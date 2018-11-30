@@ -16,26 +16,27 @@ public class Location {
    private String description;
    private String symbol;
 
-   public Location() {
+   public Location(){
    }
 
-   public Location(String description, String symbol) {
-      setDescription(description);
-      setSymbol(symbol);
+   public Location(String _description, String _symbol){
+      description = _description;
+      symbol = _symbol;
    }
 
    public String getDescription() {
       return description;
    }
 
-   public void setDescription(String description) {
-      this.description = description;
-   }
+
 
    public String getSymbol() {
       return symbol;
    }
-
+   
+   public void setDescription(String description) {
+      this.description = description;
+   }
    public void setSymbol(String symbol) {
       this.symbol = symbol;
    }

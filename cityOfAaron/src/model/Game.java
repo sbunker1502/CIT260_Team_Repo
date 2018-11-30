@@ -13,7 +13,7 @@ import java.util.*;
 
 
 public class Game implements Serializable{
-   private Map theMap;
+   private Maps theMap;
    private Player thePlayer;
    private CropData cropData;
     private ArrayList<ListItem> animals ;
@@ -50,13 +50,13 @@ public class Game implements Serializable{
     }
     public void setAnimals(void Animals) {
     }
-   */
+   
     public ArrayList<ListItem> getProvisions() {
        return provisions;
     }
     public void setProvisions(provisions1) {
-       provisions = provisions1
+       provisions = provisions1;
     }
-   
+   */
     
 }
