@@ -163,25 +163,40 @@ public class CropControl {
       cropData.setAcresPlanted(acresPlanted);
       
       return 1;
-   }       
+   }      
+   /**
+    * Purpose: This is to feed people
+    * @param wheatInStore
+    * @param wheatForPeople
+    * @param cropData
+    * @return 
+    */
+   
    public static int feedPeople(int wheatInStore, int wheatForPeople, CropData cropData) {
       //if wheatForPeople < 0, return -1
+      
       if (wheatForPeople < 0){
           return -1;
+          throw new CropException("Negative value was input");
       }
 
       //if wheatInStore < WheatForPeople return 
       if(wheatForPeople > wheatInStore) {
           return -2;
+          throw new CropException("You dont have enough wheat");
       }
 
       //wheatInStore = wheatInStore - wheatForPeople
+      if (wheatForPeople < wheatInStore) {
       wheatInStore -= wheatForPeople;
       cropData.setWheatInStore(wheatInStore);
-
       // wheat for people
       cropData.setWheatForPeople(wheatForPeople);
-
+      }
+      catch «(CropException e) {
+              system.out.printLn("Cant Do that");
+              system.out.printLn(e.getMessage());
+              }
       //return wheatInStore
       return 1;
    }
