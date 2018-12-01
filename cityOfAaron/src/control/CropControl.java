@@ -174,12 +174,12 @@ public class CropControl {
    
    public static int feedPeople(int wheatInStore, int wheatForPeople, CropData cropData) {
       //if wheatForPeople < 0, return -1
-      
-      if (wheatForPeople < 0){
+      if (wheatForPeople < 0) {
           return -1;
           throw new CropException("Negative value was input");
       }
 
+      
       //if wheatInStore < WheatForPeople return 
       if(wheatForPeople > wheatInStore) {
           return -2;
@@ -193,13 +193,13 @@ public class CropControl {
       // wheat for people
       cropData.setWheatForPeople(wheatForPeople);
       }
-      catch «(CropException e) {
+      catch (CropException e) {
               system.out.printLn("Cant Do that");
               system.out.printLn(e.getMessage());
               }
       //return wheatInStore
       return 1;
-   }
+      } 
    
    public int setOffering(int precentageToOffer, CropData cropData){
       // setOffering function
