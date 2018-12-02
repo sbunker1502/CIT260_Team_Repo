@@ -30,21 +30,27 @@ public class CropView {
    // Returns: none
    public static void buyLandView(){
       // Get the cost of land for this round.
-      int price = CropControl.calcLandCost();
+      int acresOwned = CropControl.calcLandCost();
+      int population = CropControl.calcLandCost();
+      int wheatInStore = CropControl.calcLandCost();
+      int canTend = population * 10;
+      int canPlant = wheatInStore * 2;
 
       // Prompt the user to enter the number of acres to buy
-      System.out.format("Land is selling for %d bushels per acre.%n",price);
-      int toBuy;
+      System.out.format("You own %d acres of land.%n",acresOwned);
+      System.out.format("Your population can tend up to %d acres of crops.%n",canTend);
+      System.out.format("You have enough wheat to plant %d acres of crops.%n",canPlant);
+      int toPlant;
       boolean paramsNotOkay;
       
       do{
          paramsNotOkay = false;
-         System.out.print("\nHow many acres of land do you wish to buy? "); 
+         System.out.print("\nHow many acres of crops do you wish to plant? "); 
          //  Get the user’s input and save it.
-         toBuy = keyboard.nextInt();
+         toPlant = keyboard.nextInt();
          try{
             // Call the buyLand( ) method in the control layer to buy the land
-            CropControl.buyLand(cropData, toBuy, price);
+            CropControl.plantCrops(toPlant, acresOwned, population, wheatInStore, cropData);
          }
          catch(CropException e)
          {
@@ -55,7 +61,7 @@ public class CropView {
       }while(paramsNotOkay);
 
       // output how much land we now own
-      System.out.format("You now own %d acres of land. ", cropData.getAcresOwned());
+      System.out.format("You have planted %d acres of crops. ", cropData.getAcresOwned());
    }
 
 // The runCropView method()
@@ -102,7 +108,33 @@ public static void runCropView(){
       /*System.out.println("\n sellLandView");*/
    }
    public static void plantCropsView(){
-      System.out.println("\n plantCropsView");
+      // Get the cost of land for this round.
+      int price = CropControl.calcLandCost();
+
+      // Prompt the user to enter the number of acres to buy
+      System.out.format("Land is selling for %d bushels per acre.%n",price);
+      int toBuy;
+      boolean paramsNotOkay;
+      
+      do{
+         paramsNotOkay = false;
+         System.out.print("\nHow many acres of land do you wish to buy? "); 
+         //  Get the user’s input and save it.
+         toBuy = keyboard.nextInt();
+         try{
+            // Call the buyLand( ) method in the control layer to buy the land
+            CropControl.buyLand(cropData, toBuy, price);
+         }
+         catch(CropException e)
+         {
+              System.out.println("I am sorry master, I cannot do this.");
+              System.out.println(e.getMessage());
+              paramsNotOkay = true;
+         }
+      }while(paramsNotOkay);
+
+      // output how much land we now own
+      System.out.format("You now own %d acres of land. ", cropData.getAcresOwned());
    }
    public static void displayCropsReportView(){
       System.out.println("\n displayCropsReportView");

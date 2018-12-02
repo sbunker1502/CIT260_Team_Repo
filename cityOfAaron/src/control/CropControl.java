@@ -136,35 +136,33 @@ public class CropControl {
       }
 
    
-   public static int plantCrops(int acresPlanted, int acresOwned, int population, int wheatInStore, CropData cropData){              
+   public static void plantCrops(int acresPlanted, int acresOwned, int population, int wheatInStore, CropData cropData) throws CropException{              
       /* Purpose : Planting Acres
       Method : plant crops
       */
       if(acresPlanted < 0){
-         return -1;
+         throw new CropException("A negative value was input");
       }
       if(acresPlanted > acresOwned){
-         return -2;
+         throw new CropException("Acres planted exceeds acres owned");
       }
       
       int workCapacity = population * 10;
       int workersNeeded = acresPlanted / 10;
       if(workersNeeded > workCapacity){
-         return -3;
+         throw new CropException("Not enough residents to tend that many acres");
       }
       
       int plantCapacity = wheatInStore * 2;
       int bushelsNeeded = acresPlanted / 2;
       if(bushelsNeeded > plantCapacity){
-         return -4;
+         throw new CropException("Not enough wheat in store to plant that many acres");
       }
       
       wheatInStore -= bushelsNeeded;
       //set this.wheatInStore to wheatInStore
       cropData.setWheatInStore(wheatInStore);
       cropData.setAcresPlanted(acresPlanted);
-      
-      return 1;
    }      
    /**
     * Purpose: This is to feed people
