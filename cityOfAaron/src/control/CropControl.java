@@ -6,6 +6,10 @@ import model.*;
 import exceptions.*;
 
 public class CropControl {
+
+    public static void feedPeople(int wheatForPeople, CropData cropData) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
    private int landPrice;
    //constants
    private static final int LAND_BASE = 17;
@@ -175,14 +179,14 @@ public class CropControl {
    public static int feedPeople(int wheatInStore, int wheatForPeople, CropData cropData) {
       //if wheatForPeople < 0, return -1
       if (wheatForPeople < 0) {
-          return -1;
+      
           throw new CropException("Negative value was input");
       }
 
       
       //if wheatInStore < WheatForPeople return 
       if(wheatForPeople > wheatInStore) {
-          return -2;
+     
           throw new CropException("You dont have enough wheat");
       }
 
