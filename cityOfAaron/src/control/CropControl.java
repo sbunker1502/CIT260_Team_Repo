@@ -7,9 +7,7 @@ import exceptions.*;
 
 public class CropControl {
 
-    public static void feedPeople(int wheatForPeople, CropData cropData) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
    private int landPrice;
    //constants
    private static final int LAND_BASE = 17;
@@ -175,35 +173,25 @@ public class CropControl {
     * @param cropData
     * @return 
     */
-   
-   public static int feedPeople(int wheatInStore, int wheatForPeople, CropData cropData) {
+  
+   public static void feedPeople(int wheatInStore, int wheatForPeople, CropData cropData) throws CropException {
       //if wheatForPeople < 0, return -1
       if (wheatForPeople < 0) {
-      
-          throw new CropException("Negative value was input");
+         throw new CropException("Negative value was input");
       }
 
-      
       //if wheatInStore < WheatForPeople return 
       if(wheatForPeople > wheatInStore) {
-     
           throw new CropException("You dont have enough wheat");
       }
-
+      
       //wheatInStore = wheatInStore - wheatForPeople
-      if (wheatForPeople < wheatInStore) {
+      
       wheatInStore -= wheatForPeople;
       cropData.setWheatInStore(wheatInStore);
       // wheat for people
       cropData.setWheatForPeople(wheatForPeople);
-      }
-      catch (CropException e) {
-              system.out.printLn("Cant Do that");
-              system.out.printLn(e.getMessage());
-              }
-      //return wheatInStore
-      return 1;
-      } 
+   } 
    
    public int setOffering(int precentageToOffer, CropData cropData){
       // setOffering function

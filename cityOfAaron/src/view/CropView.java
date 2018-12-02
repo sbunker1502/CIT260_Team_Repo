@@ -101,51 +101,62 @@ public static void runCropView(){
       System.out.format("You now own %d acres of land. ", cropData.getAcresOwned());
       /*System.out.println("\n sellLandView");*/
    }
-   public static void feedPeopleView(){
-      System.out.println("\n feedPeopleView");
-   }
    public static void plantCropsView(){
       System.out.println("\n plantCropsView");
    }
    public static void displayCropsReportView(){
       System.out.println("\n displayCropsReportView");
    }
- // The feedPeopleView method
+   
+   // The feedPeopleView method
    // Purpose: To figure out how much wheat
    // Parameters: none
    // Returns: none
-       public static void feedPeopleView(CropData cropData) {
-        //get amount of wheat in store
-        int wheat = cropData.getWheatInStore();
-        //display wheat in store to user
-        System.out.format("There are %d bushels of wheat in store.%n", wheat);
-        
-        boolean ok = true;
-        do {
-            try {
-                //ask user how much wheat to feed the people
-                System.out.print("How much wheat would you like to give to the people?");
-                //get input
-                int wheatForPeople = keyboard.nextInt(); 
-                
-                if (wheatForPeople < 0) {
-                    throw new CropException("Cannot Feed People Negative Amount of Wheat");
-                }
-                
-                if (wheatForPeople > wheat) {
-                    throw new CropException("Cannot Feed People More Wheat than Possessed");
-                }
-                
-                //give to the people
-                CropControl.feedPeople(wheatForPeople, cropData);
-                ok = false;
+   public static void feedPeopleView() {
+      //get amount of wheat in store
+      int wheatInStore = cropData.getWheatInStore();
+      //display wheat in store to user
+      System.out.format("There are %d bushels of wheat in store.%n", wheatInStore);
+      int wheatForPeople;
+      boolean paramsNotOkay;
+      do {
+         paramsNotOkay = false;
+
+         //ask user how much wheat to feed the people
+         System.out.print("How much wheat would you like to give to the people?");
+         
+         //get input
+         wheatForPeople = keyboard.nextInt(); 
+         try {
+           /* if (wheatForPeople < 0) {
+                throw new CropException("Cannot Feed People Negative Amount of Wheat");
             }
-            catch (CropException e) {
-                System.out.println(e.getMessage());
-                ok = true;
-            }
-        } while (ok);
-   
+
+            if (wheatForPeople > wheat) {
+                throw new CropException("Cannot Feed People More Wheat than Possessed");
+            }*/
+
+            //give to the people
+            CropControl.feedPeople(wheatInStore, wheatForPeople, cropData);
+         }
+         catch (CropException e) {
+            System.out.println("I am sorry master, I cannot do this.");
+            System.out.println(e.getMessage());
+            paramsNotOkay = true;
+            
+           /* catch (CropException e) {
+              system.out.printLn("Cant Do that");
+              system.out.printLn(e.getMessage());
+              }
+      //return wheatInStore
+      return 1;*/
+            
+         }
+      } while (paramsNotOkay);
+      // output how much wheat we now own
+      System.out.format("You now own %d bushels of wheat. ", cropData.getWheatInStore());
+      
+   }
    /*
 
    
@@ -181,5 +192,5 @@ public static void runCropView(){
     */
    
 
-       }
+       
 }
