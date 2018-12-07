@@ -54,7 +54,7 @@ public class MainMenuView extends MenuView {
                 displayHelpMenuView();
                 break;
             case 4: // save game
-                displaySaveGameView();
+                saveGame();
                 break;
             case 5:
                 System.out.println("Thanks for playing ... goodbye.");
@@ -91,18 +91,15 @@ public class MainMenuView extends MenuView {
     // ===================================    
     public void startSavedGame() {
         System.out.println("\n Start saved game option selected.");
-        
-        Scanner input = new Scanner(System.in);
 
         // get rid of nl character left in the stream
-        input.nextLine();
+        keyboard.nextLine();
         // prompt user and get a file path
         System.out.println("File path of the game wanted: ");
-        String fileName;
-        fileName = input.nextLine();
+        String filepath = keyboard.nextLine();
         // call the getSavedGame( ) method in the GameControl class to load the game
         GameControl gc = new GameControl();
-        gc.getSavedGame(fileName);        
+        gc.getSavedGame(filepath);        
         // display the game menu for the loaded game
         GameMenuView gm = new GameMenuView();
         gm.displayMenu();
@@ -114,7 +111,24 @@ public class MainMenuView extends MenuView {
         hmv.displayMenu();
     }
 
-    public void displaySaveGameView() {
-        System.out.println("\n Display save game selected.");
+     // The saveGame method
+    // Purpose: saves a game object to disk
+    // Parameters: none
+    // Returns: none
+    // ===================================   
+    public void saveGame() {
+        System.out.println("\n Save game selected.");
+        
+        // get rid of nl character left in the stream
+        keyboard.nextLine();
+        // prompt user and get a file path
+        System.out.println("Where should the game be saved?: ");
+        String filepath = keyboard.nextLine();
+        // call the getSavedGame( ) method in the GameControl class to load the game
+        GameControl gc = new GameControl();
+        gc.saveGame(filepath);        
+        // display the game menu for the loaded game
+        GameMenuView gm = new GameMenuView();
+        gm.displayMenu();
     }
 }

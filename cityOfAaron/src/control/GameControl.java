@@ -51,9 +51,9 @@ public class GameControl {
       cropData.setAcresPlanted(1000);
 
       game.setCropData(cropData);
-
+      */
       // when all is done, save a reference to the Game object
-      CityOfAaron.setGame(game);*/
+      CityOfAaron.setCurrentGame(theGame);
    
    }
    
@@ -215,6 +215,46 @@ public class GameControl {
       provisions.add(new ListItem("grocery bags", 123));
 
       //Game.setProvisions(provisions);
+   }
+
+   
+   // the getSavedGame method
+   // Purpose: load a saved game from disk
+   // Parameters: the file path
+   // Returns: none
+   // Side Effect: the game reference in the driver is updated
+   public static void getSavedGame(String filePath)
+   {
+      Game theGame = null;
+
+      try (FileInputStream fips = new FileInputStream(filePath)){
+         ObjectInputStream input = new ObjectInputStream(fips);
+         theGame = (Game)input.readObject();
+         CityOfAaron.setCurrentGame(theGame);
+      }
+      catch(Exception e){
+         System.out.println("\nThere was an error reading the saved game file");
+      }
+   }
+   
+   // the saveGame method
+   // Purpose: save a game to disk
+   // Parameters: the file path
+   // Returns: none
+   // Side Effect: the game reference in the driver is updated
+   public static void saveGame(String filePath)
+   {
+      Game theGame = null;
+
+      try (FileOutputStream fips = new FileOutputStream(filePath)){
+         ObjectOutputStream output = new ObjectOutputStream(fips);
+         output.writeObject(theGame);
+         //theGame = (Game)input.readObject();
+         //CityOfAaron.setCurrentGame(theGame);
+      }
+      catch(Exception e){
+         System.out.println("\nThere was an error saving game file");
+      }
    }
 
 }

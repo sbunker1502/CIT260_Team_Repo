@@ -19,7 +19,7 @@ public class CityOfAaron {
    public static Game getGame() {
         return theGame;
     }
-    public static void setGame(Game game1) {
+    public static void setCurrentGame(Game game1) {
         theGame = game1;
     }
 
