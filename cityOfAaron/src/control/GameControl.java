@@ -193,8 +193,34 @@ public class GameControl {
 
        //save the animals in the game
       // Game.setAnimals(animals);
+   }  
+   
+   //method to save the animals list to disk 
+  /**        public static void saveAnimalList() {
+       Scanner keyboard = new Scanner(System.in);
+       //receive a string of the file name, passed into the printing routine.
+       String listPath;
+       System.out.println("Please enter a file path for the animals list: ");
+       listPath = keyboard.next();
+
+
+       //declare a reference to a PrintWriter object
+     try (PrintWriter out = new PrintWriter(listPath);) {
+           //create the PrintWriter object
+
+           //get a reference to the ArrayList
+           ArrayList<ListItem> animals = Game.getAnimals();
+
+           //output a heading for the report
+           out.println("\n\n Animals List      "); 
+           //use a for loop to get the data from the ArrayList
+           for (ListItem item : animals) {
+           out.printf("%n%-20s%7d", item.getName()
+                                        , item.getNumber());
+
+           }
    }
-        
+   
    // method to display animals list
    public static void showAnimalsList() {
        System.out.println("showAnimalsList Method Called");
@@ -203,8 +229,8 @@ public class GameControl {
        for (ListItem item : animals) {
            System.out.println("Loop");
            System.out.println(item.getName() + ": " + item.getNumber());
-       }*/
-   }
+       }
+   }*/
    
    public static void createProvisionsList(){
       ArrayList<ListItem> provisions = new ArrayList<>();
@@ -217,8 +243,7 @@ public class GameControl {
       //Game.setProvisions(provisions);
    }
 
-   
-   // the getSavedGame method
+      // the getSavedGame method
    // Purpose: load a saved game from disk
    // Parameters: the file path
    // Returns: none
@@ -256,5 +281,41 @@ public class GameControl {
          System.out.println("\nThere was an error saving game file");
       }
    }
-
+   
+   /*public void printToolsReport() {
+        // Receive a string of the file name, passed into the printing routine.
+            System.out.println("Enter a filename to save the list.");
+            Scanner keyboard = new Scanner(System.in);
+            String fileLocation = keyboard.next();
+        // declare a reference to a PrintWriterobject
+        try (PrintWriter out = new PrintWriter(fileLocation))
+        {
+        // create the PrintWriterobject
+        // get a reference to the ArrayListyou want to output
+            ArrayList<ListItem> tools = theGame.tools();
+        
+        // output a heading for the report
+            out.println("\n\n      Tools Report              ");
+            out.printf("%n%-20s%10s", "Description", "Quantity");
+            out.printf("%n%-20s%10s", "-----------", "--------");
+        
+                // use a for loop to get the data from the ArrayList
+                tools.forEach((item) -> {
+                    out.printf("%n%-20s%7d", item.getName(), item.getNumber());
+                });
+                
+        // and output it
+        
+            System.out.println("The file was sucessfully saved.");
+            
+            out.flush();
+        }
+        catch(Exception e)
+        {
+        // output error message
+            System.out.println("Error saving tools to file!");
+            System.out.println("I/O Error:" + e.getMessage());
+        }
+    }*/
+   
 }
