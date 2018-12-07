@@ -217,4 +217,40 @@ public class GameControl {
       //Game.setProvisions(provisions);
    }
 
+   /*public void printToolsReport() {
+        // Receive a string of the file name, passed into the printing routine.
+            System.out.println("Enter a filename to save the list.");
+            Scanner keyboard = new Scanner(System.in);
+            String fileLocation = keyboard.next();
+        // declare a reference to a PrintWriterobject
+        try (PrintWriter out = new PrintWriter(fileLocation))
+        {
+        // create the PrintWriterobject
+        // get a reference to the ArrayListyou want to output
+            ArrayList<ListItem> tools = theGame.tools();
+        
+        // output a heading for the report
+            out.println("\n\n      Tools Report              ");
+            out.printf("%n%-20s%10s", "Description", "Quantity");
+            out.printf("%n%-20s%10s", "-----------", "--------");
+        
+                // use a for loop to get the data from the ArrayList
+                tools.forEach((item) -> {
+                    out.printf("%n%-20s%7d", item.getName(), item.getNumber());
+                });
+                
+        // and output it
+        
+            System.out.println("The file was sucessfully saved.");
+            
+            out.flush();
+        }
+        catch(Exception e)
+        {
+        // output error message
+            System.out.println("Error saving tools to file!");
+            System.out.println("I/O Error:" + e.getMessage());
+        }
+    }*/
+   
 }

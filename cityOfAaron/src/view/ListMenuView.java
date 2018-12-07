@@ -79,4 +79,11 @@ public class ListMenuView extends MenuView{
    public void listTeam(){
        System.out.println("\n listTeam");
    }
+   
+   
+    /*private void printToolsReport() {
+        GameControl gc = new GameControl();
+        gc.printToolsReport();
+   }*/
+    
 }
