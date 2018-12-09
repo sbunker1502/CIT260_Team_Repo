@@ -196,7 +196,10 @@ public class GameControl {
       ArrayList<ListItem> animals = theGame.getAnimals();
       showList(animals);
    }
-   
+   public static void saveAnimalList() {
+      ArrayList<ListItem> animals = theGame.getAnimals();
+      showList(animals);
+   }
    //method to save the animals list to disk 
   /*        public static void saveAnimalList() {
        Scanner keyboard = new Scanner(System.in);
@@ -246,10 +249,10 @@ public class GameControl {
    }
 
    // method to display tools list
-   /*public static void outputProvisionsList() {
+   public static void outputProvisionsList() {
       ArrayList<ListItem> provisions = theGame.getProvisions();
       showList(provisions);
-   }*/
+   }
    
    // method to display tools list
    public static void outputList(int listType, int mode)throws IOException{
@@ -257,9 +260,9 @@ public class GameControl {
          throw new IOException("Only 1 and 2 are valid inputs.");
       }
       
-      GameControl.createProvisionsList();
       // get the arrayList to outputfrom listType, then choose an action based on mode.
       if(listType == 3){
+         GameControl.createProvisionsList();
          ArrayList<ListItem> listToOutput = theGame.getProvisions();
          String listTypeToOutput = "provisionsList";
          if(mode == 1){
@@ -270,6 +273,7 @@ public class GameControl {
          }
       }else
       if(listType == 2){
+         GameControl.createAnimalList();
          ArrayList<ListItem> listToOutput = theGame.getAnimals();
          String listTypeToOutput = "animalsList";
          if(mode == 1){
@@ -280,6 +284,7 @@ public class GameControl {
          }
       }
       else{
+         GameControl.createListTools();
          ArrayList<ListItem> listToOutput = theGame.getTools();
          String listTypeToOutput = "toolsList";
          if(mode == 1){
