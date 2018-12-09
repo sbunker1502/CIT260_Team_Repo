@@ -57,7 +57,7 @@ public class ListItem implements Serializable {
 
     @Override
     public String toString() {
-        return "ListItem{" + "name=" + name + ", number=" + number + '}';
+        return "Name:"+name + ",  Number:"+number+"\n";
     }
 
     @Override

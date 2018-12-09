@@ -7,6 +7,9 @@ package view;
 import java.util.Scanner;
 import model.*;
 import control.*;
+import java.io.PrintWriter;
+import java.io.IOException;
+
 
 public class ListMenuView extends MenuView{
    /**
@@ -43,13 +46,16 @@ public class ListMenuView extends MenuView{
    {
       switch(option){
          case 1: 
-            listAnimals();
+            //listAnimals();
+            outputList(1);
             break;
          case 2: 
-            listTools();
+            //listTools();
+            outputList(2);
             break;
          case 3: 
-            listProvisions();
+            //listProvisions();
+            outputList(3);
             break;
          case 4: 
             listTeam();
@@ -71,19 +77,83 @@ public class ListMenuView extends MenuView{
    }
    
            
-   public void listProvisions(){
-       System.out.println("\n listProvisions");
-   }
+  /* public void listProvisions(){
+      System.out.println("\n listProvisions");
+      GameControl.createProvisionsList();
+      int toDo;
+      boolean paramsNotOkay;
+      
+       do{
+         paramsNotOkay = false;
+         System.out.print("\n Print List(1) or Save List (2): "); 
+         //  Get the user’s input and save it.
+         toDo = keyboard.nextInt();
+         
+         if(toDo == 1){
+            //print list
+            try{
+               GameControl.outputList();
+               }
+               catch(IOException e)
+               
+                    System.out.println("I am sorry master, I cannot do this.");
+                    System.out.println(e.getMessage());
+                    paramsNotOkay = true;
+               }
+         }else if(toDo == 2){
+            //save list
+            try(PrintWriter out = new PrintWriter("data.txt"))
+            {
+               out.println("City: " + name + "\tPopulation: " + population);
+            }
+            catch(IOException e)
+            {
+               System.out.println("File Error.");
+            }
+         }
+         try{
+            // Call the buyLand( ) method in the control layer to buy the land
+            CropControl.buyLand(cropData, toBuy, price);
+         }
+         catch(CropException e)
+         {
+              System.out.println("I am sorry master, I cannot do this.");
+              System.out.println(e.getMessage());
+              paramsNotOkay = true;
+         }
+      }while(paramsNotOkay);
+   }*/
   
    
    public void listTeam(){
        System.out.println("\n listTeam");
    }
    
+   public void outputList(int listType){
+      int toDo;
+      boolean paramsNotOkay;
+      
+      do{
+         paramsNotOkay = false;
+         System.out.print("\n Print List(1) or Save List (2): "); 
+         //  Get the user’s input and save it.
+         toDo = keyboard.nextInt();
+         try{
+            GameControl.outputList(listType, toDo);
+         }
+         catch(IOException e){
+            System.out.println("I am sorry master, I cannot do this.");
+            System.out.println(e.getMessage());
+            paramsNotOkay = true;
+         }
+      }while(paramsNotOkay);
+   }
    
     /*private void printToolsReport() {
         GameControl gc = new GameControl();
         gc.printToolsReport();
    }*/
+   
+   
     
 }

@@ -1,0 +1,8 @@
+Name:meals,  Number:21
+
+Name:windex,  Number:75
+
+Name:paper towels,  Number:61
+
+Name:grocery bags,  Number:123
+

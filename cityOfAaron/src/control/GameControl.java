@@ -5,11 +5,12 @@
 // Date Last modified: date you wrote this code
 // ==============================================================
 package control;
-
 import model.*;
 import cityofaaron.*;
+import exceptions.CropException;
 import java.io.*; 
 import java.util.*; 
+import java.util.Scanner;
 
 public class GameControl {
     
@@ -168,17 +169,14 @@ public class GameControl {
       tools.add(new ListItem("shovel", 46));
       tools.add(new ListItem("hammer", 23));
 
-      //theGame.setTools(tools);
+      theGame.setTools(tools);
 
    }
 
    // method to display tools list
    public static void showListTools() {
-   /*   System.out.println("showlistTools Method Called");
-      ArrayList<ListItem> tools = Game.getTools();
-      for (ListItem item : tools) {
-          System.out.println(item.getName() + ": " + item.getNumber());
-      }*/
+      ArrayList<ListItem> tools = theGame.getTools();
+      showList(tools);
    }
         
    
@@ -192,11 +190,15 @@ public class GameControl {
        animals.add(new ListItem("goats", 4)); 
 
        //save the animals in the game
-      // Game.setAnimals(animals);
+      theGame.setAnimals(animals);
    }  
+   public static void showAnimalList() {
+      ArrayList<ListItem> animals = theGame.getAnimals();
+      showList(animals);
+   }
    
    //method to save the animals list to disk 
-  /**        public static void saveAnimalList() {
+  /*        public static void saveAnimalList() {
        Scanner keyboard = new Scanner(System.in);
        //receive a string of the file name, passed into the printing routine.
        String listPath;
@@ -220,7 +222,7 @@ public class GameControl {
 
            }
    }
-   
+  
    // method to display animals list
    public static void showAnimalsList() {
        System.out.println("showAnimalsList Method Called");
@@ -230,7 +232,7 @@ public class GameControl {
            System.out.println("Loop");
            System.out.println(item.getName() + ": " + item.getNumber());
        }
-   }*/
+   } */
    
    public static void createProvisionsList(){
       ArrayList<ListItem> provisions = new ArrayList<>();
@@ -240,9 +242,76 @@ public class GameControl {
       provisions.add(new ListItem("paper towels", 61));
       provisions.add(new ListItem("grocery bags", 123));
 
-      //Game.setProvisions(provisions);
+      theGame.setProvisions(provisions);
    }
 
+   // method to display tools list
+   /*public static void outputProvisionsList() {
+      ArrayList<ListItem> provisions = theGame.getProvisions();
+      showList(provisions);
+   }*/
+   
+   // method to display tools list
+   public static void outputList(int listType, int mode)throws IOException{
+      if(mode != 1 && mode != 2){
+         throw new IOException("Only 1 and 2 are valid inputs.");
+      }
+      
+      GameControl.createProvisionsList();
+      // get the arrayList to outputfrom listType, then choose an action based on mode.
+      if(listType == 3){
+         ArrayList<ListItem> listToOutput = theGame.getProvisions();
+         String listTypeToOutput = "provisionsList";
+         if(mode == 1){
+            showList(listToOutput);
+         }
+         else{
+            saveList(listToOutput, listTypeToOutput);
+         }
+      }else
+      if(listType == 2){
+         ArrayList<ListItem> listToOutput = theGame.getAnimals();
+         String listTypeToOutput = "animalsList";
+         if(mode == 1){
+            showList(listToOutput);
+         }
+         else{
+            saveList(listToOutput, listTypeToOutput);
+         }
+      }
+      else{
+         ArrayList<ListItem> listToOutput = theGame.getTools();
+         String listTypeToOutput = "toolsList";
+         if(mode == 1){
+            showList(listToOutput);
+         }
+         else{
+            saveList(listToOutput, listTypeToOutput);
+         }
+      } 
+   }
+   
+   //Single function to display lists for all week 12 individual assignments. sc
+   public static void showList(ArrayList<ListItem> misterList) {
+      for (ListItem num : misterList) { 		      
+           System.out.println(num.toString()); 		
+      }
+   }
+   
+   //Single function to display lists for all week 12 individual assignments. sc
+   public static void saveList(ArrayList<ListItem> misterList, String listTypeToOutput) {
+      String fileName = listTypeToOutput + ".txt";
+      try(PrintWriter out = new PrintWriter(fileName)){
+         for (ListItem num : misterList) { 		      
+            out.println(num.toString()); 		
+         }
+      }
+      catch(IOException e){
+         System.out.println("File Error.");
+      }
+
+   }
+   
       // the getSavedGame method
    // Purpose: load a saved game from disk
    // Parameters: the file path

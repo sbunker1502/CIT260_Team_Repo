@@ -114,8 +114,7 @@ public class CropControl {
       //return owned
   //    return acresOwned;
   // }
-      public static void buyLand(CropData theCrop, int toBuy, int landCost) throws CropException
-      {
+      public static void buyLand(CropData theCrop, int toBuy, int landCost) throws CropException{
          // check parameters - do they meet the contract
          if(toBuy < 0){
              throw new CropException("A negative value was input");
