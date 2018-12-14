@@ -228,6 +228,7 @@ public static void runCropView(){
         System.out.format("There are %d bushels of wheat in store.%n", wheatInStore); 
         System.out.format("The population is %d people.%n", population); 
         
+        
     }
 }
    /*
