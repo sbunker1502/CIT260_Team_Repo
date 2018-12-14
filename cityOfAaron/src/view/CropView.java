@@ -22,6 +22,29 @@ public class CropView {
    // Get references to the Game object and the CropData object
    static private Game game = CityOfAaron.getGame();
    static private CropData cropData = game.getCropData();
+   
+   // methods
+    
+    /**
+     * Method: runCropsView
+     * Purpose: runs the game
+     * Parameters: none
+     * Returns: none
+     */
+    public static void runCropsView() {
+        cropReportView(cropData); 
+        // call buyLandView
+        buyLandView();
+        
+        // other cropView methods as they become relevant
+        
+        sellLandView(); 
+        feedPeopleView(cropData); 
+        plantCropsView(cropData); 
+         
+       
+    }
+    
 
    // The buyLandView method
    // Purpose: interface with the user input for buying land
@@ -189,6 +212,24 @@ public static void runCropView(){
       System.out.format("You now own %d bushels of wheat. ", cropData.getWheatInStore());
       
    }
+     
+   public static void cropReportView(CropData cropData) {
+        System.out.println("Crop Report View"); 
+       
+        int year = cropData.getYear(); 
+        int acresOwned = cropData.getAcresOwned(); 
+        int wheatInStore = cropData.getWheatInStore();
+        int population = cropData.getPopulation(); 
+         
+        
+        //System.out.print(year);
+        System.out.format("The year is %d. %n", year); 
+        System.out.format("You own %d acres of land.%n", acresOwned); 
+        System.out.format("There are %d bushels of wheat in store.%n", wheatInStore); 
+        System.out.format("The population is %d people.%n", population); 
+        
+    }
+}
    /*
 
    
