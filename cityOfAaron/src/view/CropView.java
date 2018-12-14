@@ -24,28 +24,6 @@ public class CropView {
    static private CropData cropData = game.getCropData();
    
    // methods
-    
-    /**
-     * Method: runCropsView
-     * Purpose: runs the game
-     * Parameters: none
-     * Returns: none
-     */
-    public static void runCropsView() {
-        cropReportView(cropData); 
-        // call buyLandView
-        buyLandView();
-        
-        // other cropView methods as they become relevant
-        
-        sellLandView(); 
-        feedPeopleView(cropData); 
-        plantCropsView(cropData); 
-         
-       
-    }
-    
-
    // The buyLandView method
    // Purpose: interface with the user input for buying land
    // Parameters: none
@@ -84,12 +62,24 @@ public class CropView {
 // Purpose: runs the methods to manage the crops game
 // Parameters: none
 // Returns: none
+/**
+ * Method: runCropsView
+ * Purpose: runs the game
+ * Parameters: none
+ * Returns: none
+ */
 public static void runCropView(){
-    // call the buyLandView( ) method
-    buyLandView( );
-
-    // add calls to the other crop view methods
-    // as they are written
+    cropReportView(cropData); 
+    // call buyLandView
+    buyLandView();
+        
+    // other cropView methods as they become relevant
+        
+    sellLandView(); 
+    feedPeopleView(); 
+    plantCropsView(); 
+         
+       
 }
 
 
@@ -216,7 +206,7 @@ public static void runCropView(){
    public static void cropReportView(CropData cropData) {
         System.out.println("Crop Report View"); 
        
-        int year = cropData.getYear(); 
+        int year = 1+cropData.getYear(); 
         int acresOwned = cropData.getAcresOwned(); 
         int wheatInStore = cropData.getWheatInStore();
         int population = cropData.getPopulation(); 
@@ -230,7 +220,7 @@ public static void runCropView(){
         
         
     }
-}
+
    /*
 
    
