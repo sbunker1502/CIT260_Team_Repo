@@ -115,8 +115,11 @@ public class GameControl {
       Location loc2 = new Location();
       loc2.setDescription(farmland + "\nOne bushel will plant two acres of wheat.");
       loc2.setSymbol("///");
-      theMap.setLocation(0, 2, loc2);
 
+      //set this location object in each cell of the array in column 4
+      for(int i = 0; i < MAX_ROW; i++) {
+         theMap.setLocation(i, 2, loc2); 
+      }
       // MOUNTAIN
 
       //define the string for a mountain range
@@ -127,8 +130,8 @@ public class GameControl {
       loc3.setSymbol("^^^");
 
       // for loop sets 3rd row of map as mountain
-      for (int i = 0; i < 4; i++) {
-         theMap.setLocation(1, i, loc3);
+      for (int i = 0; i < MAX_ROW; i++) {
+         theMap.setLocation(i, 3, loc3);
       }
 
       // PLAINS 
@@ -140,7 +143,7 @@ public class GameControl {
       loc4.setSymbol("'''");
 
       // for loop sets 
-      for (int i = 2; i < 5; i++) {
+      for (int i = 0; i < 5; i++) {
          for (int j = 0; j < 3; j++) {
             theMap.setLocation(i, j, loc4);                    
          }
