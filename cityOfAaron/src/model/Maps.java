@@ -1,4 +1,5 @@
 package model;
+import cityofaaron.CityOfAaron;
 import java.util.Scanner;
 
 /**
@@ -35,6 +36,10 @@ public class Maps{
       locations = new Location[_rows][_cols];        
    }
    
+   public Location[][] getLocations(){
+      return locations;
+   }
+   
    public int getColCount(){
       return colCount;
    }
@@ -58,42 +63,4 @@ public class Maps{
    public void setLocation(int row, int col, Location _location){
        locations[row][col] = _location;
    }
-   
-   /*public void displayMap(int row, int col, Location _location){
-
-    //Declare the map array
-    String playerMap[][] = new String[5][5];
-    
-    //This is the map display and the symbols used
-    String[][] mappy = {
-    {"///","///","^^^","^^^","~~~"},
-    {"///","///","^^^","^^^","~~~"},
-    {"$$$","$$$","^^^","^^^","~~~"},
-    {"$$$","$$$","^^^","^^^","'''"},
-    {"$$$","$$$","^^^","^^^","'''"}};
-
-    //For loops are used to call the array locations in the map
-    for(int i = 0; i < mappy.length; i++){
-        output i + "|";
-        for(int j = 0; j < mappy[i].length; j++){
-             System.out.println(mappy[i][j].getSymbol() + "|");
-        }
-   
-    output "\n";
-   
-    //This is the legend for the map
-    System.out.println( "Key:\n" +
-        "/// - farmland\n" +
-        "^^^ - mountain\n" +
-        "~~~ - river\n" +
-        "$$$ - trading post\n" +
-        "''' - plains");
-    }
-        System.out.println("***   VILLAGE MAP   ***\n"  
-        + "     1     2     3     4     5");
-}*/  
-   
-   
-   
-   
 }

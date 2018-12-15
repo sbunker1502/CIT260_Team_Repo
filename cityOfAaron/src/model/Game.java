@@ -34,6 +34,12 @@ public class Game implements Serializable{
        thePlayer = player;
    }
   
+   public Maps getMap() {
+       return theMap;
+   }
+   public void setMap(Maps map) {
+       theMap = map;
+   }
    
    public CropData getCropData() {
       return cropData;

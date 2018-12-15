@@ -4,7 +4,7 @@
 * and open the template in the editor.
  */
 package view;
-
+import control.*;
 import java.util.Scanner;
 /**
  *
@@ -59,8 +59,8 @@ public class GameMenuView extends MenuView{
 
     public void viewMap() {
         System.out.println("\n View Map");
-        // Call the map from the maps.java
-        //theGame.getMaps().displayMaps();
+        // Call the map from the GameControl.java
+        GameControl.displayMap();
     }
 
     // The viewList() method

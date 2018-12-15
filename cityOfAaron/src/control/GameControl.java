@@ -155,12 +155,52 @@ public class GameControl {
       loc5.setSymbol("$$$"); 
       theMap.setLocation(4, 4, loc5);
 
+      theGame.setMap(theMap);
+      
       // return 
       // return theMap;
       
       // function is void type. return statement can be used only if nothing is returned.
    }
-        
+      
+   public static void displayMap(){
+
+    //Declare the map array
+    //String playerMap[][] = new String[5][5];
+    
+    //This is the map display and the symbols used
+    /*String[][] theMap = {
+    {"///","///","^^^","^^^","~~~"},
+    {"///","///","^^^","^^^","~~~"},
+    {"$$$","$$$","^^^","^^^","~~~"},
+    {"$$$","$$$","^^^","^^^","'''"},
+    {"$$$","$$$","^^^","^^^","'''"}};*/
+
+    Location[][] theMap = CityOfAaron.getGame().getMap().getLocations();
+   
+    System.out.println("***   VILLAGE MAP   ***\n"  
+        + "     1     2     3     4     5");
+    
+    //For loops are used to call the array locations in the map
+    for(int i = 0; i < theMap.length; i++){
+        System.out.println(i + "|");
+        for(int j = 0; j < theMap[i].length; j++){
+             System.out.println(theMap[i][j].getSymbol() + "|");
+        }
+   
+    System.out.println ("\n");
+   }
+    
+    //This is the legend for the map
+    System.out.println( "Key:\n" +
+        "/// - farmland\n" +
+        "^^^ - mountain\n" +
+        "~~~ - river\n" +
+        "$$$ - trading post\n" +
+        "''' - plains");  
+}
+   
+   
    //create the tools list
    public static void createListTools() {
       ArrayList<ListItem> tools = new ArrayList<>(); 
