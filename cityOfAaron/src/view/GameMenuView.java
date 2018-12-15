@@ -59,6 +59,8 @@ public class GameMenuView extends MenuView{
 
     public void viewMap() {
         System.out.println("\n View Map");
+        // Call the map from the maps.java
+        //theGame.getMaps().displayMaps();
     }
 
     // The viewList() method
