@@ -435,4 +435,158 @@ public class GameControl {
         }
     }*/
    
+   
+    //cataclysmic event stuff
+    public static void cataclysmicEvent(){
+        //random number generator
+        Random random = new Random();
+        CropData theCrops = new CropData();
+        int eventRoll = random.nextInt(1) + 20;
+        int eventSeverity = random.nextInt(1) + 20;
+        
+        if(eventRoll == 20){
+            //event's happening
+            //roll again to see what's affected
+            eventRoll = random.nextInt(1) + 20;
+            switch (eventRoll){
+                case 1:
+                   //nothing 0
+                   break;
+                case 2:
+                   // everything will be affected. check the event severity
+                    switch(eventSeverity){
+                        case 1:
+                            // lose nothing
+                            break;
+                        case 20:
+                            // lose all but 1
+                            theCrops.setPopulation(1);
+                            theCrops.setWheatInStore(1);
+                            theCrops.setAcresOwned(1);
+                            break;
+                        default:
+                            //lose a percentage == eventSeverity * 3
+                            theCrops.setPopulation(theCrops.getPopulation() * (1-(eventSeverity * 3)/100));
+                            theCrops.setWheatInStore(theCrops.getWheatInStore() * (1-(eventSeverity * 3)/100));
+                            theCrops.setAcresOwned(theCrops.getAcresOwned() * (1-(eventSeverity * 3)/100));                
+                            break;
+                    }
+                   break;
+                case 3:
+                case 4:
+                   //people and wheat 
+                    switch(eventSeverity){
+                        case 1:
+                            // lose nothing
+                            break;
+                        case 20:
+                            // lose all but 1
+                            theCrops.setPopulation(1);
+                            theCrops.setWheatInStore(1);
+                            break;
+                        default:
+                            //lose a percentage == eventSeverity * 3
+                            theCrops.setPopulation(theCrops.getPopulation() * (1-(eventSeverity * 3)/100));
+                            theCrops.setWheatInStore(theCrops.getWheatInStore() * (1-(eventSeverity * 3)/100));               
+                            break;
+                    }
+                   break;
+                case 5:
+                case 6:
+                    //people and land 
+                    switch(eventSeverity){
+                        case 1:
+                            // lose nothing
+                            break;
+                        case 20:
+                            // lose all but 1
+                            theCrops.setPopulation(1);
+                            theCrops.setAcresOwned(1);
+                            break;
+                        default:
+                            //lose a percentage == eventSeverity * 3
+                            theCrops.setPopulation(theCrops.getPopulation() * (1-(eventSeverity * 3)/100));
+                            theCrops.setAcresOwned(theCrops.getAcresOwned() * (1-(eventSeverity * 3)/100));                
+                            break;
+                    }
+                    break;
+                case 7:
+                case 8:
+                   //land and wheat 
+                    switch(eventSeverity){
+                        case 1:
+                            // lose nothing
+                            break;
+                        case 20:
+                            // lose all but 1
+                            theCrops.setWheatInStore(1);
+                            theCrops.setAcresOwned(1);
+                            break;
+                        default:
+                            //lose a percentage == eventSeverity * 3
+                            theCrops.setWheatInStore(theCrops.getWheatInStore() * (1-(eventSeverity * 3)/100));
+                            theCrops.setAcresOwned(theCrops.getAcresOwned() * (1-(eventSeverity * 3)/100));                
+                            break;
+                    }
+                   break;
+                case 9:
+                case 10:
+                case 11:
+                case 12:
+                   //people
+                    switch(eventSeverity){
+                        case 1:
+                            // lose nothing
+                            break;
+                        case 20:
+                            // lose all but 1
+                            theCrops.setPopulation(1);
+                            break;
+                        default:
+                            //lose a percentage == eventSeverity * 3
+                            theCrops.setPopulation(theCrops.getPopulation() * (1-(eventSeverity * 3)/100));               
+                            break;
+                    }
+                   break;
+                case 13:
+                case 14:
+                case 15:
+                case 16:
+                   //wheat 
+                    switch(eventSeverity){
+                        case 1:
+                            // lose nothing
+                            break;
+                        case 20:
+                            // lose all but 1
+                            theCrops.setWheatInStore(1);
+                            break;
+                        default:
+                            //lose a percentage == eventSeverity * 3
+                            theCrops.setWheatInStore(theCrops.getWheatInStore() * (1-(eventSeverity * 3)/100));               
+                            break;
+                    }
+                   break;
+                case 17:
+                case 18:
+                case 19:
+                case 20:
+                   //land 
+                    switch(eventSeverity){
+                        case 1:
+                            // lose nothing
+                            break;
+                        case 20:
+                            // lose all but 1
+                            theCrops.setAcresOwned(1);
+                            break;
+                        default:
+                            //lose a percentage == eventSeverity * 3
+                            theCrops.setAcresOwned(theCrops.getAcresOwned() * (1-(eventSeverity * 3)/100));                
+                            break;
+                    }
+                   break;
+            }
+        }
+    }
 }

@@ -78,7 +78,7 @@ public static void runCropView(){
     sellLandView(); 
     feedPeopleView(); 
     plantCropsView(); 
-         
+    GameControl.cataclysmicEvent();
        
 }
 
